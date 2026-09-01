@@ -1,0 +1,439 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600;700;800&display=swap">
+  <style>
+    :root{
+      --cream:#faf3e7;
+      --cream-2:#f2e6d2;
+      --ink:#2c2420;
+      --ink-soft:#5b4f45;
+      --tomato:oklch(0.55 0.19 29);
+      --tomato-dark:oklch(0.42 0.17 27);
+      --olive:oklch(0.5 0.09 130);
+      --line:#e4d5bb;
+    }
+    *{box-sizing:border-box;}
+    body{margin:0;font-family:'Manrope',system-ui,sans-serif;background:var(--cream);color:var(--ink);}
+    h1,h2,h3{font-family:'Spectral',Georgia,serif;margin:0;}
+    a{color:var(--tomato-dark);text-decoration:underline;}
+    a:hover{color:var(--tomato);}
+    p{margin:0;line-height:1.6;}
+    .wrap{max-width:820px;margin:0 auto;padding:0 28px 100px;}
+    .step-num{font-family:'Spectral',Georgia,serif;font-variant-numeric:oldstyle-nums;}
+    @media (max-width:700px){
+      .wrap{padding:0 16px 80px;}
+    }
+  </style>
+</helmet>
+
+<div style="min-height:100vh;background:var(--cream);">
+
+  <!-- top bar -->
+  <div style="position:sticky;top:0;z-index:20;background:rgba(250,243,231,0.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);">
+    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="{{tomato}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="9.5" r="1" fill="{{tomato}}" stroke="none"/><circle cx="14" cy="8" r="1" fill="{{tomato}}" stroke="none"/><circle cx="15" cy="14" r="1" fill="{{tomato}}" stroke="none"/><circle cx="9.5" cy="14.5" r="1" fill="{{tomato}}" stroke="none"/></svg>
+        <span style="font-family:'Spectral',serif;font-weight:600;font-size:15px;letter-spacing:0.01em;">Pizza, pas a pas</span>
+      </div>
+      <div style="display:flex;background:var(--cream-2);border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px;">
+        <button onClick="{{setCa}}" style="{{caBtnStyle}}">CA</button>
+        <button onClick="{{setEs}}" style="{{esBtnStyle}}">ES</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CATALAN CONTENT ============ -->
+  <article style="{{caDisplay}}">
+    <div class="wrap">
+
+      <!-- hero -->
+      <header style="padding-top:48px;padding-bottom:36px;border-bottom:1px solid var(--line);">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:var(--cream-2);border:1px solid var(--line);border-radius:999px;padding:6px 14px;margin-bottom:22px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--tomato-dark)" stroke-width="2" stroke-linecap="round"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg>
+          <span style="font-size:12.5px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--tomato-dark);">Recepta pas a pas</span>
+        </div>
+        <h1 style="font-size:44px;line-height:1.08;font-weight:600;letter-spacing:-0.01em;color:var(--ink);">Pizza napolitana casolana, de la massa al forn</h1>
+        <p style="margin-top:16px;font-size:18px;color:var(--ink-soft);max-width:60ch;">Massa amb 12 hores de fermentació en fred, doble cocció i vora esponjosa. Aquesta és la guia completa, ingredient a ingredient i pas a pas.</p>
+
+        <div style="display:flex;gap:28px;margin-top:28px;flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ink-soft)" stroke-width="1.8" stroke-linecap="round"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg>
+            <span style="font-size:14px;color:var(--ink-soft);"><strong style="color:var(--ink);">~14 h</strong> total (majoria repòs)</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ink-soft)" stroke-width="1.8" stroke-linecap="round"><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/><circle cx="12" cy="7" r="4"/></svg>
+            <span style="font-size:14px;color:var(--ink-soft);"><strong style="color:var(--ink);">2 panets</strong> de 260 g</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ink-soft)" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M10 4v16"/></svg>
+            <span style="font-size:14px;color:var(--ink-soft);"><strong style="color:var(--ink);">10 passos</strong></span>
+          </div>
+        </div>
+      </header>
+
+      <!-- ingredients -->
+      <section style="padding-top:36px;">
+        <h2 style="font-size:24px;font-weight:600;margin-bottom:18px;">Ingredients</h2>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;">
+          <div style="background:#fff;border:1px solid var(--line);border-radius:4px;padding:22px;">
+            <h3 style="font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--tomato-dark);margin-bottom:14px;">Per a la massa</h3>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <div style="display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding-bottom:8px;"><span>Farina fluixa (de tot ús)</span><strong style="white-space:nowrap;">230 g</strong></div>
+              <div style="display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding-bottom:8px;"><span>Farina de força</span><strong style="white-space:nowrap;">230 g</strong></div>
+              <div style="display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding-bottom:8px;"><span>Aigua</span><strong style="white-space:nowrap;">330 g</strong></div>
+              <div style="display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding-bottom:8px;"><span>Oli d'oliva verge extra</span><strong style="white-space:nowrap;">15 g</strong></div>
+              <div style="display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding-bottom:8px;"><span>Sal</span><strong style="white-space:nowrap;">8 g aprox.</strong></div>
+              <div style="display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding-bottom:8px;"><span>Sucre</span><strong style="white-space:nowrap;">5 g</strong></div>
+              <div style="display:flex;justify-content:space-between;gap:12px;"><span>Llevat fresc</span><strong style="white-space:nowrap;">0,5 g</strong></div>
+            </div>
+            <p style="margin-top:12px;font-size:12.5px;color:var(--ink-soft);">El sucre ajuda a daurar la vora al forn domèstic. El llevat: mida d'un cigró sec, o una punta de cullera si és sec.</p>
+          </div>
+          <div style="background:#fff;border:1px solid var(--line);border-radius:4px;padding:22px;">
+            <h3 style="font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--olive);margin-bottom:14px;">Farcit i estirat</h3>
+            <div style="display:flex;flex-direction:column;gap:12px;">
+              <div><div style="font-size:12.5px;font-weight:700;color:var(--ink-soft);">BASE</div><p>Farina de semolina o de fregir, per estirar la massa</p></div>
+              <div><div style="font-size:12.5px;font-weight:700;color:var(--ink-soft);">SALSA</div><p>Passata de tomàquet</p></div>
+              <div><div style="font-size:12.5px;font-weight:700;color:var(--ink-soft);">FORMATGES</div><p>Mozzarella fresca (molt ben escorreguda) i Parmigiano Reggiano ratllat</p></div>
+              <div><div style="font-size:12.5px;font-weight:700;color:var(--ink-soft);">ALTRES</div><p>Pepperoni, alfàbrega fresca, un toc de sal i un rajolí d'oli d'oliva verge extra</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- steps -->
+      <section style="padding-top:44px;">
+        <h2 style="font-size:24px;font-weight:600;margin-bottom:22px;">Elaboració, pas a pas</h2>
+        <div style="display:flex;flex-direction:column;">
+
+          <div style="display:flex;gap:18px;padding-bottom:26px;border-left:2px solid var(--line);margin-left:19px;padding-left:26px;position:relative;">
+            <div style="position:absolute;left:-21px;top:0;width:40px;height:40px;border-radius:999px;background:var(--tomato);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;border:3px solid var(--cream);" class="step-num">1</div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+                <h3 style="font-size:18px;font-weight:600;">Mescla inicial</h3>
+                <span style="font-size:12.5px;font-weight:700;color:var(--tomato-dark);background:#fdf0ea;border-radius:999px;padding:3px 10px;white-space:nowrap;">30 segons</span>
+              </div>
+              <p style="margin-top:8px;color:var(--ink-soft);">Barrejar la farina de força, la farina normal i el sucre en un bol. Dissoldre el llevat fresc en l'aigua i afegir el líquid al bol de les farines, juntament amb l'oli d'oliva i la sal. Estrujar i barrejar fins que la massa estigui integrada sense amassar gaire.</p>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:18px;padding-bottom:26px;border-left:2px solid var(--line);margin-left:19px;padding-left:26px;position:relative;">
+            <div style="position:absolute;left:-21px;top:0;width:40px;height:40px;border-radius:999px;background:var(--tomato);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;border:3px solid var(--cream);" class="step-num">2</div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+                <h3 style="font-size:18px;font-weight:600;">Primer repòs</h3>
+                <span style="font-size:12.5px;font-weight:700;color:var(--tomato-dark);background:#fdf0ea;border-radius:999px;padding:3px 10px;white-space:nowrap;">15–20 min</span>
+              </div>
+              <p style="margin-top:8px;color:var(--ink-soft);">Tapar el bol (per exemple, amb un casquet de dutxa) i deixar que la massa es relaxi.</p>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:18px;padding-bottom:26px;border-left:2px solid var(--line);margin-left:19px;padding-left:26px;position:relative;">
+            <div style="position:absolute;left:-21px;top:0;width:40px;height:40px;border-radius:999px;background:var(--tomato);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;border:3px solid var(--cream);" class="step-num">3</div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+                <h3 style="font-size:18px;font-weight:600;">Rondes de plecs</h3>
+                <span style="font-size:12.5px;font-weight:700;color:var(--tomato-dark);background:#fdf0ea;border-radius:999px;padding:3px 10px;white-space:nowrap;">2–4 rondes · 15–20 min entre plecs</span>
+              </div>
+              <p style="margin-top:8px;color:var(--ink-soft);">Amb les mans humides per evitar que s'enganxi, desenganxar la massa del fons del bol, aixecar-la i doblegar-la sobre si mateixa. Girar la massa 90° i repetir fins que la bola ja no permeti fer més plecs. Deixar reposar tapada entre plecs, tantes rondes com calgui fins que la massa es vegi llisa.</p>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:18px;padding-bottom:26px;border-left:2px solid var(--line);margin-left:19px;padding-left:26px;position:relative;">
+            <div style="position:absolute;left:-21px;top:0;width:40px;height:40px;border-radius:999px;background:var(--olive);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;border:3px solid var(--cream);" class="step-num">4</div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+                <h3 style="font-size:18px;font-weight:600;">Primera fermentació en fred</h3>
+                <span style="font-size:12.5px;font-weight:700;color:var(--olive);background:#eef1e6;border-radius:999px;padding:3px 10px;white-space:nowrap;">12 h · nevera</span>
+              </div>
+              <p style="margin-top:8px;color:var(--ink-soft);">Tapar el bol i guardar-lo a la nevera, on la massa farà una fermentació llarga i acabarà d'amassar-se sola. D'un dia per l'altre.</p>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:18px;padding-bottom:26px;border-left:2px solid var(--line);margin-left:19px;padding-left:26px;position:relative;">
+            <div style="position:absolute;left:-21px;top:0;width:40px;height:40px;border-radius:999px;background:var(--tomato);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;border:3px solid var(--cream);" class="step-num">5</div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+                <h3 style="font-size:18px;font-weight:600;">Divisió de la massa</h3>
+                <span style="font-size:12.5px;font-weight:700;color:var(--tomato-dark);background:#fdf0ea;border-radius:999px;padding:3px 10px;white-space:nowrap;">~260 g / panet</span>
+              </div>
+              <p style="margin-top:8px;color:var(--ink-soft);">Treure la massa freda de la nevera a una taula de treball lleugerament humida i dividir-la en porcions d'uns 260 g cadascuna.</p>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:18px;padding-bottom:26px;border-left:2px solid var(--line);margin-left:19px;padding-left:26px;position:relative;">
+            <div style="position:absolute;left:-21px;top:0;width:40px;height:40px;border-radius:999px;background:var(--olive);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;border:3px solid var(--cream);" class="step-num">6</div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+                <h3 style="font-size:18px;font-weight:600;">Segona fermentació a temperatura ambient</h3>
+                <span style="font-size:12.5px;font-weight:700;color:var(--olive);background:#eef1e6;border-radius:999px;padding:3px 10px;white-space:nowrap;">Unes hores</span>
+              </div>
+              <p style="margin-top:8px;color:var(--ink-soft);">Formar boles (panets) i deixar-les reposar tapades perquè creixin, s'aplanin una mica per la seva alta hidratació i s'omplin de bombolles d'aire. El temps depèn de la temperatura de l'habitació.</p>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:18px;padding-bottom:26px;border-left:2px solid var(--line);margin-left:19px;padding-left:26px;position:relative;">
+            <div style="position:absolute;left:-21px;top:0;width:40px;height:40px;border-radius:999px;background:var(--tomato-dark);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;border:3px solid var(--cream);" class="step-num">7</div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+                <h3 style="font-size:18px;font-weight:600;">Preescalfat del forn</h3>
+                <span style="font-size:12.5px;font-weight:700;color:var(--tomato-dark);background:#fdf0ea;border-radius:999px;padding:3px 10px;white-space:nowrap;">~250 °C · mín. 45 min abans</span>
+              </div>
+              <p style="margin-top:8px;color:var(--ink-soft);">Col·locar la safata del forn cap per avall a la part superior (superfície plana i còmoda). Preescalfar amb calor a dalt i a baix a la potència màxima del forn domèstic.</p>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:18px;padding-bottom:26px;border-left:2px solid var(--line);margin-left:19px;padding-left:26px;position:relative;">
+            <div style="position:absolute;left:-21px;top:0;width:40px;height:40px;border-radius:999px;background:var(--tomato);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;border:3px solid var(--cream);" class="step-num">8</div>
+            <div style="flex:1;">
+              <h3 style="font-size:18px;font-weight:600;">Estirat i muntatge inicial</h3>
+              <p style="margin-top:8px;color:var(--ink-soft);">Col·locar el panet sobre una capa generosa de semolina. Estirar-lo des del centre cap enfora prement amb delicadesa, amb els dits plans (mai de punta), per no perdre les bombolles d'aire de la vora (cornicione). Retirar l'excés de semolina, passar-la a un cartró dur o pala, i condimentar només amb dues cullerades i mitja de passata de tomàquet, sal i un toc d'oli.</p>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:18px;padding-bottom:26px;border-left:2px solid var(--line);margin-left:19px;padding-left:26px;position:relative;">
+            <div style="position:absolute;left:-21px;top:0;width:40px;height:40px;border-radius:999px;background:var(--tomato-dark);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;border:3px solid var(--cream);" class="step-num">9</div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+                <h3 style="font-size:18px;font-weight:600;">Primera cocció (precocció)</h3>
+                <span style="font-size:12.5px;font-weight:700;color:var(--tomato-dark);background:#fdf0ea;border-radius:999px;padding:3px 10px;white-space:nowrap;">3–4 min</span>
+              </div>
+              <p style="margin-top:8px;color:var(--ink-soft);">Lliscar la pizza amb compte sobre la safata del forn calenta. L'objectiu: que la base es cuini per sota i la vora s'infli de manera esponjosa, però sense agafar color ni torrar-se.</p>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:18px;border-left:2px solid transparent;margin-left:19px;padding-left:26px;position:relative;">
+            <div style="position:absolute;left:-21px;top:0;width:40px;height:40px;border-radius:999px;background:var(--tomato-dark);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;border:3px solid var(--cream);" class="step-num">10</div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+                <h3 style="font-size:18px;font-weight:600;">Segona cocció (acabat)</h3>
+                <span style="font-size:12.5px;font-weight:700;color:var(--tomato-dark);background:#fdf0ea;border-radius:999px;padding:3px 10px;white-space:nowrap;">2–3 min · grill si en té</span>
+              </div>
+              <p style="margin-top:8px;color:var(--ink-soft);">Treure la pizza del forn (encara estarà tova i blanca a dalt). Afegir l'alfàbrega fresca, la mozzarella ben escorreguda, el pepperoni i el Parmigiano Reggiano. Tornar-la al forn per acabar de torrar-la per sobre i daurar la base.</p>
+              <div style="margin-top:14px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--tomato);border-radius:4px;padding:14px 16px;">
+                <p style="font-size:14px;"><strong>Acabat final:</strong> treure la pizza, posar-hi un últim rajolí d'oli d'oliva verge extra i tallar-la amb tisores per conservar l'estructura interna de la vora.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <footer style="margin-top:52px;padding-top:22px;border-top:1px solid var(--line);">
+        <p style="font-size:13px;color:var(--ink-soft);">Guia de pizza napolitana casolana · fermentació llarga en fred · doble cocció.</p>
+      </footer>
+    </div>
+  </article>
+
+  <!-- ============ SPANISH CONTENT ============ -->
+  <article style="{{esDisplay}}">
+    <div class="wrap">
+
+      <header style="padding-top:48px;padding-bottom:36px;border-bottom:1px solid var(--line);">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:var(--cream-2);border:1px solid var(--line);border-radius:999px;padding:6px 14px;margin-bottom:22px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--tomato-dark)" stroke-width="2" stroke-linecap="round"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg>
+          <span style="font-size:12.5px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--tomato-dark);">Receta paso a paso</span>
+        </div>
+        <h1 style="font-size:44px;line-height:1.08;font-weight:600;letter-spacing:-0.01em;color:var(--ink);">Pizza napolitana casera, de la masa al horno</h1>
+        <p style="margin-top:16px;font-size:18px;color:var(--ink-soft);max-width:60ch;">Masa con 12 horas de fermentación en frío, doble cocción y borde esponjoso. Esta es la guía completa, ingrediente a ingrediente y paso a paso.</p>
+
+        <div style="display:flex;gap:28px;margin-top:28px;flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ink-soft)" stroke-width="1.8" stroke-linecap="round"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg>
+            <span style="font-size:14px;color:var(--ink-soft);"><strong style="color:var(--ink);">~14 h</strong> total (mayoría reposo)</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ink-soft)" stroke-width="1.8" stroke-linecap="round"><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/><circle cx="12" cy="7" r="4"/></svg>
+            <span style="font-size:14px;color:var(--ink-soft);"><strong style="color:var(--ink);">2 bolas</strong> de 260 g</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ink-soft)" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M10 4v16"/></svg>
+            <span style="font-size:14px;color:var(--ink-soft);"><strong style="color:var(--ink);">10 pasos</strong></span>
+          </div>
+        </div>
+      </header>
+
+      <section style="padding-top:36px;">
+        <h2 style="font-size:24px;font-weight:600;margin-bottom:18px;">Ingredientes</h2>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;">
+          <div style="background:#fff;border:1px solid var(--line);border-radius:4px;padding:22px;">
+            <h3 style="font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--tomato-dark);margin-bottom:14px;">Para la masa</h3>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <div style="display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding-bottom:8px;"><span>Harina floja (de uso común)</span><strong style="white-space:nowrap;">230 g</strong></div>
+              <div style="display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding-bottom:8px;"><span>Harina de fuerza</span><strong style="white-space:nowrap;">230 g</strong></div>
+              <div style="display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding-bottom:8px;"><span>Agua</span><strong style="white-space:nowrap;">330 g</strong></div>
+              <div style="display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding-bottom:8px;"><span>Aceite de oliva virgen extra</span><strong style="white-space:nowrap;">15 g</strong></div>
+              <div style="display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding-bottom:8px;"><span>Sal</span><strong style="white-space:nowrap;">8 g aprox.</strong></div>
+              <div style="display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding-bottom:8px;"><span>Azúcar</span><strong style="white-space:nowrap;">5 g</strong></div>
+              <div style="display:flex;justify-content:space-between;gap:12px;"><span>Levadura fresca</span><strong style="white-space:nowrap;">0,5 g</strong></div>
+            </div>
+            <p style="margin-top:12px;font-size:12.5px;color:var(--ink-soft);">El azúcar ayuda a dorar el borde en el horno doméstico. La levadura: tamaño de un garbanzo seco, o una punta de cuchara si es seca.</p>
+          </div>
+          <div style="background:#fff;border:1px solid var(--line);border-radius:4px;padding:22px;">
+            <h3 style="font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--olive);margin-bottom:14px;">Relleno y estirado</h3>
+            <div style="display:flex;flex-direction:column;gap:12px;">
+              <div><div style="font-size:12.5px;font-weight:700;color:var(--ink-soft);">BASE</div><p>Sémola o harina de freír, para estirar la masa</p></div>
+              <div><div style="font-size:12.5px;font-weight:700;color:var(--ink-soft);">SALSA</div><p>Tomate triturado (passata)</p></div>
+              <div><div style="font-size:12.5px;font-weight:700;color:var(--ink-soft);">QUESOS</div><p>Mozzarella fresca (muy bien escurrida) y Parmesano Reggiano rallado</p></div>
+              <div><div style="font-size:12.5px;font-weight:700;color:var(--ink-soft);">OTROS</div><p>Pepperoni, albahaca fresca, un toque de sal y un chorrito de aceite de oliva virgen extra</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section style="padding-top:44px;">
+        <h2 style="font-size:24px;font-weight:600;margin-bottom:22px;">Elaboración, paso a paso</h2>
+        <div style="display:flex;flex-direction:column;">
+
+          <div style="display:flex;gap:18px;padding-bottom:26px;border-left:2px solid var(--line);margin-left:19px;padding-left:26px;position:relative;">
+            <div style="position:absolute;left:-21px;top:0;width:40px;height:40px;border-radius:999px;background:var(--tomato);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;border:3px solid var(--cream);" class="step-num">1</div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+                <h3 style="font-size:18px;font-weight:600;">Mezcla inicial</h3>
+                <span style="font-size:12.5px;font-weight:700;color:var(--tomato-dark);background:#fdf0ea;border-radius:999px;padding:3px 10px;white-space:nowrap;">30 segundos</span>
+              </div>
+              <p style="margin-top:8px;color:var(--ink-soft);">Mezclar la harina de fuerza, la harina normal y el azúcar en un bol. Disolver la levadura fresca en el agua y añadir el líquido al bol de las harinas, junto con el aceite de oliva y la sal. Apretar y mezclar hasta que la masa esté integrada sin amasar demasiado.</p>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:18px;padding-bottom:26px;border-left:2px solid var(--line);margin-left:19px;padding-left:26px;position:relative;">
+            <div style="position:absolute;left:-21px;top:0;width:40px;height:40px;border-radius:999px;background:var(--tomato);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;border:3px solid var(--cream);" class="step-num">2</div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+                <h3 style="font-size:18px;font-weight:600;">Primer reposo</h3>
+                <span style="font-size:12.5px;font-weight:700;color:var(--tomato-dark);background:#fdf0ea;border-radius:999px;padding:3px 10px;white-space:nowrap;">15–20 min</span>
+              </div>
+              <p style="margin-top:8px;color:var(--ink-soft);">Tapar el bol (por ejemplo, con un gorro de ducha) y dejar que la masa se relaje.</p>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:18px;padding-bottom:26px;border-left:2px solid var(--line);margin-left:19px;padding-left:26px;position:relative;">
+            <div style="position:absolute;left:-21px;top:0;width:40px;height:40px;border-radius:999px;background:var(--tomato);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;border:3px solid var(--cream);" class="step-num">3</div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+                <h3 style="font-size:18px;font-weight:600;">Rondas de pliegues</h3>
+                <span style="font-size:12.5px;font-weight:700;color:var(--tomato-dark);background:#fdf0ea;border-radius:999px;padding:3px 10px;white-space:nowrap;">2–4 rondas · 15–20 min entre pliegues</span>
+              </div>
+              <p style="margin-top:8px;color:var(--ink-soft);">Con las manos húmedas para evitar que se pegue, despegar la masa del fondo del bol, levantarla y doblarla sobre sí misma. Girar la masa 90° y repetir hasta que la bola ya no permita más pliegues. Dejar reposar tapada entre pliegues, tantas rondas como haga falta hasta que la masa se vea lisa.</p>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:18px;padding-bottom:26px;border-left:2px solid var(--line);margin-left:19px;padding-left:26px;position:relative;">
+            <div style="position:absolute;left:-21px;top:0;width:40px;height:40px;border-radius:999px;background:var(--olive);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;border:3px solid var(--cream);" class="step-num">4</div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+                <h3 style="font-size:18px;font-weight:600;">Primera fermentación en frío</h3>
+                <span style="font-size:12.5px;font-weight:700;color:var(--olive);background:#eef1e6;border-radius:999px;padding:3px 10px;white-space:nowrap;">12 h · nevera</span>
+              </div>
+              <p style="margin-top:8px;color:var(--ink-soft);">Tapar el bol y guardarlo en la nevera, donde la masa hará una fermentación larga y acabará de amasarse sola. De un día para otro.</p>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:18px;padding-bottom:26px;border-left:2px solid var(--line);margin-left:19px;padding-left:26px;position:relative;">
+            <div style="position:absolute;left:-21px;top:0;width:40px;height:40px;border-radius:999px;background:var(--tomato);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;border:3px solid var(--cream);" class="step-num">5</div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+                <h3 style="font-size:18px;font-weight:600;">División de la masa</h3>
+                <span style="font-size:12.5px;font-weight:700;color:var(--tomato-dark);background:#fdf0ea;border-radius:999px;padding:3px 10px;white-space:nowrap;">~260 g / bola</span>
+              </div>
+              <p style="margin-top:8px;color:var(--ink-soft);">Sacar la masa fría de la nevera a una mesa de trabajo ligeramente húmeda y dividirla en porciones de unos 260 g cada una.</p>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:18px;padding-bottom:26px;border-left:2px solid var(--line);margin-left:19px;padding-left:26px;position:relative;">
+            <div style="position:absolute;left:-21px;top:0;width:40px;height:40px;border-radius:999px;background:var(--olive);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;border:3px solid var(--cream);" class="step-num">6</div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+                <h3 style="font-size:18px;font-weight:600;">Segunda fermentación a temperatura ambiente</h3>
+                <span style="font-size:12.5px;font-weight:700;color:var(--olive);background:#eef1e6;border-radius:999px;padding:3px 10px;white-space:nowrap;">Unas horas</span>
+              </div>
+              <p style="margin-top:8px;color:var(--ink-soft);">Formar bolas y dejarlas reposar tapadas para que crezcan, se aplanen un poco por su alta hidratación y se llenen de burbujas de aire. El tiempo depende de la temperatura de la habitación.</p>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:18px;padding-bottom:26px;border-left:2px solid var(--line);margin-left:19px;padding-left:26px;position:relative;">
+            <div style="position:absolute;left:-21px;top:0;width:40px;height:40px;border-radius:999px;background:var(--tomato-dark);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;border:3px solid var(--cream);" class="step-num">7</div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+                <h3 style="font-size:18px;font-weight:600;">Precalentado del horno</h3>
+                <span style="font-size:12.5px;font-weight:700;color:var(--tomato-dark);background:#fdf0ea;border-radius:999px;padding:3px 10px;white-space:nowrap;">~250 °C · mín. 45 min antes</span>
+              </div>
+              <p style="margin-top:8px;color:var(--ink-soft);">Colocar la bandeja del horno boca abajo en la parte superior (superficie plana y cómoda). Precalentar con calor arriba y abajo a la potencia máxima del horno doméstico.</p>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:18px;padding-bottom:26px;border-left:2px solid var(--line);margin-left:19px;padding-left:26px;position:relative;">
+            <div style="position:absolute;left:-21px;top:0;width:40px;height:40px;border-radius:999px;background:var(--tomato);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;border:3px solid var(--cream);" class="step-num">8</div>
+            <div style="flex:1;">
+              <h3 style="font-size:18px;font-weight:600;">Estirado y montaje inicial</h3>
+              <p style="margin-top:8px;color:var(--ink-soft);">Colocar la bola sobre una capa generosa de sémola. Estirarla desde el centro hacia fuera presionando con delicadeza, con los dedos planos (nunca de punta), para no perder las burbujas de aire del borde (cornicione). Retirar el exceso de sémola, pasarla a un cartón duro o pala, y condimentar solo con dos cucharadas y media de tomate triturado, sal y un toque de aceite.</p>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:18px;padding-bottom:26px;border-left:2px solid var(--line);margin-left:19px;padding-left:26px;position:relative;">
+            <div style="position:absolute;left:-21px;top:0;width:40px;height:40px;border-radius:999px;background:var(--tomato-dark);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;border:3px solid var(--cream);" class="step-num">9</div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+                <h3 style="font-size:18px;font-weight:600;">Primera cocción (precocción)</h3>
+                <span style="font-size:12.5px;font-weight:700;color:var(--tomato-dark);background:#fdf0ea;border-radius:999px;padding:3px 10px;white-space:nowrap;">3–4 min</span>
+              </div>
+              <p style="margin-top:8px;color:var(--ink-soft);">Deslizar la pizza con cuidado sobre la bandeja del horno caliente. El objetivo: que la base se cocine por debajo y el borde se hinche de forma esponjosa, pero sin coger color ni tostarse.</p>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:18px;border-left:2px solid transparent;margin-left:19px;padding-left:26px;position:relative;">
+            <div style="position:absolute;left:-21px;top:0;width:40px;height:40px;border-radius:999px;background:var(--tomato-dark);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;border:3px solid var(--cream);" class="step-num">10</div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+                <h3 style="font-size:18px;font-weight:600;">Segunda cocción (acabado)</h3>
+                <span style="font-size:12.5px;font-weight:700;color:var(--tomato-dark);background:#fdf0ea;border-radius:999px;padding:3px 10px;white-space:nowrap;">2–3 min · grill si tiene</span>
+              </div>
+              <p style="margin-top:8px;color:var(--ink-soft);">Sacar la pizza del horno (todavía estará blanda y blanca por arriba). Añadir la albahaca fresca, la mozzarella bien escurrida, el pepperoni y el Parmesano Reggiano. Volver a meterla al horno para terminar de tostarla por arriba y dorar la base.</p>
+              <div style="margin-top:14px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--tomato);border-radius:4px;padding:14px 16px;">
+                <p style="font-size:14px;"><strong>Acabado final:</strong> sacar la pizza, añadir un último chorrito de aceite de oliva virgen extra y cortarla con tijeras para conservar la estructura interna del borde.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <footer style="margin-top:52px;padding-top:22px;border-top:1px solid var(--line);">
+        <p style="font-size:13px;color:var(--ink-soft);">Guía de pizza napolitana casera · fermentación larga en frío · doble cocción.</p>
+      </footer>
+    </div>
+  </article>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { lang: 'ca' };
+  }
+  renderVals() {
+    const lang = this.state.lang;
+    const tomato = '#c0392b';
+    const activeStyle = 'border:none;border-radius:999px;padding:6px 14px;font-size:12.5px;font-weight:700;font-family:Manrope,sans-serif;cursor:pointer;background:#c0392b;color:#fff;';
+    const inactiveStyle = 'border:none;border-radius:999px;padding:6px 14px;font-size:12.5px;font-weight:700;font-family:Manrope,sans-serif;cursor:pointer;background:transparent;color:#5b4f45;';
+    return {
+      tomato,
+      caDisplay: lang === 'ca' ? 'display:block;' : 'display:none;',
+      esDisplay: lang === 'es' ? 'display:block;' : 'display:none;',
+      caBtnStyle: lang === 'ca' ? activeStyle : inactiveStyle,
+      esBtnStyle: lang === 'es' ? activeStyle : inactiveStyle,
+      setCa: () => this.setState({ lang: 'ca' }),
+      setEs: () => this.setState({ lang: 'es' }),
+    };
+  }
+}
+</script>
+</body>
+</html>
