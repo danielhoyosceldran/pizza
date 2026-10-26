@@ -559,3 +559,67 @@ body[data-lang="es"] .tab-l[data-l="es"] { display: inline; }
   .tabbar[data-active="steps"] .tab-ind { transform: translateX(calc(100% + 8px)); }
 .tabbar[data-active="ideas"] .tab-ind { transform: translateX(calc(200% + 16px)); }
 }
+
+/* ---------- language morph ---------- */
+
+.ml { display: inline-block; white-space: pre; text-decoration: inherit; }
+.ml-ghost { position: absolute; pointer-events: none; }
+
+@keyframes lang-in {
+  from { opacity: 0.25; filter: blur(3px); }
+}
+
+.lang-swap .panel:not([hidden]) :is(.ing-list li, .ing-top, .step, .idea) { animation: none; }
+.lang-swap :is(.step-detail-in, .idea-ing, .ing-top, .ing-hint) { animation: lang-in 0.4s var(--ease-out) 0.08s backwards; }
+
+/* ---------- progress tally ---------- */
+
+.tally {
+  margin-left: 10px;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+.tally-n { display: inline-grid; overflow: hidden; }
+.tally-n > span { grid-area: 1 / 1; }
+
+/* ---------- celebration ---------- */
+
+.confetti {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 30;
+  pointer-events: none;
+}
+
+/* ---------- theme reveal ---------- */
+
+.theme-btn svg { animation: icon-in 0.5s var(--ease-out); }
+
+@keyframes icon-in {
+  from { opacity: 0; transform: rotate(-80deg) scale(0.5); }
+}
+
+html.vt-theme body { transition: none; }
+html.vt-theme::view-transition-old(root),
+html.vt-theme::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+
+/* ---------- idea sheet shared title ---------- */
+
+.sheet-title-t { display: inline-block; }
+.sheet.vt-open, .sheet.vt-open::backdrop { transition: none; }
+
+@keyframes sheet-up {
+  from { transform: translateY(100%); }
+}
+
+html.vt-sheet::view-transition-group(*) { animation-duration: 0.44s; animation-timing-function: var(--ease-out); }
+html.vt-sheet::view-transition-new(sheet) { animation: sheet-up 0.44s var(--ease-out) both; }
+html.vt-sheet::view-transition-old(idea-title) { animation-duration: 0.2s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-btn svg, .lang-swap :is(.step-detail-in, .idea-ing, .ing-top, .ing-hint) { animation: none; }
+}
