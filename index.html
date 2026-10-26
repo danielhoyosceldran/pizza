@@ -20,6 +20,12 @@
 </head>
 <body data-lang="ca">
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-repeat" viewBox="0 0 24 24"><path d="M17 2l4 4-4 4M3 11V9a3 3 0 0 1 3-3h15M7 22l-4-4 4-4M21 13v2a3 3 0 0 1-3 3H3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-tick" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
 <header class="topbar">
   <div class="topbar-inner">
     <div class="mark">
@@ -41,273 +47,304 @@
 
 <main class="wrap">
 
-  <!-- ================= CATALAN ================= -->
   <article class="lang-block" data-lang="ca">
 
-    <section class="hero">
-      <p class="kicker">Recepta pas a pas</p>
-      <h1>Pizza napolitana<br>casolana</h1>
-      <p class="lede">Massa amb 12 hores de fermentació en fred, doble cocció i vora esponjosa. Guia completa, ingredient a ingredient.</p>
-      <div class="meta-row">
-        <span><strong>~14 h</strong> total</span>
-        <span class="dot">·</span>
-        <span><strong>2</strong> panets de 260 g</span>
-        <span class="dot">·</span>
-        <span><strong>10</strong> passos</span>
-      </div>
+    <section class="ingredients panel" data-tab="ingredients" id="panel-ingredients">
+      <h2>Ingredients · 2 panets</h2>
+      <ul class="ing-list">
+        <li><span>Farina fluixa</span><span class="ing-val">230 g</span></li>
+        <li><span>Farina de força</span><span class="ing-val">230 g</span></li>
+        <li><span>Aigua</span><span class="ing-val">330 g</span></li>
+        <li><span>Oli d'oliva</span><span class="ing-val">15 g</span></li>
+        <li><span>Sal</span><span class="ing-val">8 g</span></li>
+        <li><span>Sucre</span><span class="ing-val">5 g</span></li>
+        <li><span>Llevat fresc <span class="ing-hint">(un cigró)</span></span><span class="ing-val">0,5 g</span></li>
+      </ul>
+      <p class="ing-top"><span class="ing-label">Per sobre</span> Semolina (per estirar) · passata · mozzarella escorreguda · parmesà · pepperoni · alfàbrega <span class="plus">+ sal i oli</span></p>
     </section>
 
-    <section class="ingredients">
-      <h2>Ingredients</h2>
-      <div class="ing-grid">
-        <div class="ing-col">
-          <h3>Per a la massa</h3>
-          <ul class="ing-list">
-            <li><span>Farina fluixa (tot ús)</span><span class="ing-val">230 g</span></li>
-            <li><span>Farina de força</span><span class="ing-val">230 g</span></li>
-            <li><span>Aigua</span><span class="ing-val">330 g</span></li>
-            <li><span>Oli d'oliva verge extra</span><span class="ing-val">15 g</span></li>
-            <li><span>Sal</span><span class="ing-val">8 g aprox.</span></li>
-            <li><span>Sucre</span><span class="ing-val">5 g</span></li>
-            <li><span>Llevat fresc</span><span class="ing-val">0,5 g</span></li>
-          </ul>
-          <p class="ing-note">El sucre ajuda a daurar la vora al forn domèstic. El llevat: mida d'un cigró sec, o una punta de cullera si és sec.</p>
-        </div>
-        <div class="ing-col">
-          <h3>Farcit i estirat</h3>
-          <ul class="ing-list ing-list--desc">
-            <li><span class="ing-label">Base</span><span>Semolina o farina de fregir, per estirar</span></li>
-            <li><span class="ing-label">Salsa</span><span>Passata de tomàquet</span></li>
-            <li><span class="ing-label">Formatges</span><span>Mozzarella fresca ben escorreguda i Parmigiano Reggiano ratllat</span></li>
-            <li><span class="ing-label">Altres</span><span>Pepperoni, alfàbrega fresca, sal i un rajolí d'oli verge extra</span></li>
-          </ul>
-        </div>
-      </div>
+    <section class="steps panel" data-tab="steps" id="panel-steps" hidden>
+      <div class="steps-head"><h2>Elaboració</h2><button type="button" class="reset-btn" hidden>Tornar a començar</button></div>
+      <ol class="step-list">
+      <li class="step" data-id="1"><button type="button" class="step-btn" aria-pressed="false">
+        <span class="step-num"><span class="n">1</span><svg class="tick" width="16" height="16"><use href="#i-tick"/></svg></span>
+        <span class="step-body">
+          <span class="step-head"><span class="step-title">Mesclar</span><span class="step-tags"><span class="step-time">30 s</span></span></span>
+          <span class="step-detail"><span class="step-detail-in">Tot al bol, llevat dissolt en l'aigua. Barrejar sense amassar.</span></span>
+        </span>
+      </button></li>
+      <li class="step" data-id="2"><button type="button" class="step-btn" aria-pressed="false">
+        <span class="step-num"><span class="n">2</span><svg class="tick" width="16" height="16"><use href="#i-tick"/></svg></span>
+        <span class="step-body">
+          <span class="step-head"><span class="step-title">Reposar i plegar</span><span class="step-tags"><span class="rep"><svg width="13" height="13"><use href="#i-repeat"/></svg>×2–4</span></span></span>
+          <span class="step-detail"><span class="step-detail-in"><span class="sub"><span class="sub-l">Reposa</span><span class="sub-d">Tapat, 15–20 min.</span></span><span class="sub"><span class="sub-l">Plega</span><span class="sub-d">Desenganxar, aixecar i doblegar la massa; girar 90°. Fins que quedi llisa.</span></span></span></span>
+        </span>
+      </button></li>
+      <li class="step" data-id="3"><button type="button" class="step-btn" aria-pressed="false">
+        <span class="step-num"><span class="n">3</span><svg class="tick" width="16" height="16"><use href="#i-tick"/></svg></span>
+        <span class="step-body">
+          <span class="step-head"><span class="step-title">Nevera</span><span class="step-tags"><span class="step-time">12 h</span></span></span>
+          <span class="step-detail"><span class="step-detail-in">Tapat, d'un dia per l'altre.</span></span>
+        </span>
+      </button></li>
+      <li class="step" data-id="4"><button type="button" class="step-btn" aria-pressed="false">
+        <span class="step-num"><span class="n">4</span><svg class="tick" width="16" height="16"><use href="#i-tick"/></svg></span>
+        <span class="step-body">
+          <span class="step-head"><span class="step-title">Dividir</span><span class="step-tags"><span class="step-time">~260 g</span></span></span>
+          <span class="step-detail"><span class="step-detail-in">Sobre una taula humida.</span></span>
+        </span>
+      </button></li>
+      <li class="step" data-id="5"><button type="button" class="step-btn" aria-pressed="false">
+        <span class="step-num"><span class="n">5</span><svg class="tick" width="16" height="16"><use href="#i-tick"/></svg></span>
+        <span class="step-body">
+          <span class="step-head"><span class="step-title">Boles a temperatura ambient</span><span class="step-tags"><span class="step-time">unes hores</span></span></span>
+          <span class="step-detail"><span class="step-detail-in">Boles tapades, fins que tinguin bombolles.</span></span>
+        </span>
+      </button></li>
+      <li class="step" data-id="6"><button type="button" class="step-btn" aria-pressed="false">
+        <span class="step-num"><span class="n">6</span><svg class="tick" width="16" height="16"><use href="#i-tick"/></svg></span>
+        <span class="step-body">
+          <span class="step-head"><span class="step-title">Forn</span><span class="step-tags"><span class="step-time">250 °C · 45 min</span></span></span>
+          <span class="step-detail"><span class="step-detail-in">Safata cap per avall a dalt. Calor a dalt i a baix.</span></span>
+        </span>
+      </button></li>
+      <li class="step" data-id="7"><button type="button" class="step-btn" aria-pressed="false">
+        <span class="step-num"><span class="n">7</span><svg class="tick" width="16" height="16"><use href="#i-tick"/></svg></span>
+        <span class="step-body">
+          <span class="step-head"><span class="step-title">Estirar i muntar</span><span class="step-tags"></span></span>
+          <span class="step-detail"><span class="step-detail-in">Sobre semolina, des del centre amb els dits plans (mai de punta). A la pala: 2½ cullerades de passata, sal, oli.</span></span>
+        </span>
+      </button></li>
+      <li class="step" data-id="8"><button type="button" class="step-btn" aria-pressed="false">
+        <span class="step-num"><span class="n">8</span><svg class="tick" width="16" height="16"><use href="#i-tick"/></svg></span>
+        <span class="step-body">
+          <span class="step-head"><span class="step-title">Coure</span><span class="step-tags"><span class="rep"><svg width="13" height="13"><use href="#i-repeat"/></svg>×2</span></span></span>
+          <span class="step-detail"><span class="step-detail-in"><span class="sub"><span class="sub-l">Base</span><span class="sub-d">3–4 min · Vora inflada, sense color.</span></span><span class="sub"><span class="sub-l">Acabat</span><span class="sub-d">2–3 min · Alfàbrega, mozzarella, pepperoni, parmesà. Grill si en té. Oli i tisores.</span></span></span></span>
+        </span>
+      </button></li>
+      </ol>
     </section>
 
-    <section class="steps">
-      <h2>Elaboració</h2>
-
-      <div class="step">
-        <div class="step-num">01</div>
-        <div class="step-body">
-          <div class="step-head"><h3>Mescla inicial</h3><span class="step-time">30 s</span></div>
-          <p>Barrejar la farina de força, la farina normal i el sucre en un bol. Dissoldre el llevat fresc en l'aigua i afegir-lo al bol amb l'oli d'oliva i la sal. Estrujar i barrejar fins que la massa estigui integrada sense amassar gaire.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">02</div>
-        <div class="step-body">
-          <div class="step-head"><h3>Primer repòs</h3><span class="step-time">15–20 min</span></div>
-          <p>Tapar el bol (per exemple, amb un casquet de dutxa) i deixar que la massa es relaxi.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">03</div>
-        <div class="step-body">
-          <div class="step-head"><h3>Rondes de plecs</h3><span class="step-time">2–4 rondes · 15–20 min entre plecs</span></div>
-          <p>Amb les mans humides, desenganxar la massa del fons del bol, aixecar-la i doblegar-la sobre si mateixa. Girar 90° i repetir fins que ja no permeti fer més plecs. Reposar tapada entre plecs, fins que la massa es vegi llisa.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">04</div>
-        <div class="step-body">
-          <div class="step-head"><h3>Primera fermentació en fred</h3><span class="step-time">12 h · nevera</span></div>
-          <p>Tapar el bol i guardar-lo a la nevera, on la massa farà una fermentació llarga i acabarà d'amassar-se sola. D'un dia per l'altre.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">05</div>
-        <div class="step-body">
-          <div class="step-head"><h3>Divisió de la massa</h3><span class="step-time">~260 g / panet</span></div>
-          <p>Treure la massa freda de la nevera a una taula lleugerament humida i dividir-la en porcions d'uns 260 g cadascuna.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">06</div>
-        <div class="step-body">
-          <div class="step-head"><h3>Segona fermentació, temperatura ambient</h3><span class="step-time">Unes hores</span></div>
-          <p>Formar boles i deixar-les reposar tapades perquè creixin, s'aplanin una mica per la seva alta hidratació i s'omplin de bombolles d'aire. El temps depèn de la temperatura de l'habitació.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">07</div>
-        <div class="step-body">
-          <div class="step-head"><h3>Preescalfat del forn</h3><span class="step-time">~250 °C · mín. 45 min abans</span></div>
-          <p>Col·locar la safata cap per avall a la part superior (superfície plana). Preescalfar amb calor a dalt i a baix a la potència màxima del forn.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">08</div>
-        <div class="step-body">
-          <div class="step-head"><h3>Estirat i muntatge inicial</h3></div>
-          <p>Col·locar el panet sobre una capa generosa de semolina. Estirar-lo des del centre cap enfora amb els dits plans (mai de punta), per no perdre les bombolles d'aire de la vora. Retirar l'excés de semolina, passar-lo a una pala, i condimentar amb dues cullerades i mitja de passata, sal i un toc d'oli.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">09</div>
-        <div class="step-body">
-          <div class="step-head"><h3>Primera cocció (precocció)</h3><span class="step-time">3–4 min</span></div>
-          <p>Lliscar la pizza sobre la safata calenta. Objectiu: que la base es cuini per sota i la vora s'infli esponjosa, sense agafar color ni torrar-se.</p>
-        </div>
-      </div>
-
-      <div class="step step--last">
-        <div class="step-num">10</div>
-        <div class="step-body">
-          <div class="step-head"><h3>Segona cocció (acabat)</h3><span class="step-time">2–3 min · grill si en té</span></div>
-          <p>Treure la pizza (encara tova i blanca a dalt). Afegir alfàbrega fresca, mozzarella ben escorreguda, pepperoni i Parmigiano Reggiano. Tornar al forn per torrar per sobre i daurar la base.</p>
-          <div class="callout"><strong>Acabat final —</strong> un últim rajolí d'oli d'oliva verge extra i tallar amb tisores per conservar l'estructura interna de la vora.</div>
-        </div>
-      </div>
-
+    <section class="ideas panel" data-tab="ideas" id="panel-ideas" hidden>
+      <h2>Idees</h2>
+      <ul class="idea-list">
+        <li class="idea" style="--i:0"><button type="button" class="idea-btn" aria-haspopup="dialog">
+          <span class="idea-head"><span class="idea-title">Margherita</span><svg class="chev" width="16" height="16" aria-hidden="true"><use href="#i-chev"/></svg></span>
+          <span class="idea-ing">Passata · mozzarella · alfàbrega · oli</span>
+          <span class="idea-ins" hidden>Primera cocció amb passata. Treure, afegir la mozzarella a trossos i tornar-la al forn. Acabar amb alfàbrega fresca i un rajolí d'oli.</span>
+        </button></li>
+        <li class="idea" style="--i:1"><button type="button" class="idea-btn" aria-haspopup="dialog">
+          <span class="idea-head"><span class="idea-title">Marinara</span><svg class="chev" width="16" height="16" aria-hidden="true"><use href="#i-chev"/></svg></span>
+          <span class="idea-ing">Passata · all · orenga · oli</span>
+          <span class="idea-ins" hidden>Sense formatge. Passata, all laminat i orenga abans de la primera cocció. Un bon rajolí d'oli al final.</span>
+        </button></li>
+        <li class="idea" style="--i:2"><button type="button" class="idea-btn" aria-haspopup="dialog">
+          <span class="idea-head"><span class="idea-title">Diavola</span><svg class="chev" width="16" height="16" aria-hidden="true"><use href="#i-chev"/></svg></span>
+          <span class="idea-ing">Passata · mozzarella · pepperoni · oli picant</span>
+          <span class="idea-ins" hidden>Com la Margherita, afegint el pepperoni a la segona cocció perquè es torri una mica. Oli picant al final.</span>
+        </button></li>
+        <li class="idea" style="--i:3"><button type="button" class="idea-btn" aria-haspopup="dialog">
+          <span class="idea-head"><span class="idea-title">Quatre formatges</span><svg class="chev" width="16" height="16" aria-hidden="true"><use href="#i-chev"/></svg></span>
+          <span class="idea-ing">Mozzarella · gorgonzola · parmesà · provolone</span>
+          <span class="idea-ins" hidden>Passata fina o res. A la segona cocció, repartir els quatre formatges. Deixar-la fins que faci bombolles.</span>
+        </button></li>
+        <li class="idea" style="--i:4"><button type="button" class="idea-btn" aria-haspopup="dialog">
+          <span class="idea-head"><span class="idea-title">Prosciutto e funghi</span><svg class="chev" width="16" height="16" aria-hidden="true"><use href="#i-chev"/></svg></span>
+          <span class="idea-ing">Passata · mozzarella · xampinyons · pernil cuit</span>
+          <span class="idea-ins" hidden>Saltar els xampinyons en sec perquè no deixin aigua. Posar-los a la segona cocció i el pernil en sortir del forn.</span>
+        </button></li>
+        <li class="idea" style="--i:5"><button type="button" class="idea-btn" aria-haspopup="dialog">
+          <span class="idea-head"><span class="idea-title">Napoli</span><svg class="chev" width="16" height="16" aria-hidden="true"><use href="#i-chev"/></svg></span>
+          <span class="idea-ing">Passata · mozzarella · anxoves · olives · orenga</span>
+          <span class="idea-ins" hidden>Primera cocció amb passata. A la segona, mozzarella, anxoves i olives. Poca sal: les anxoves ja en porten.</span>
+        </button></li>
+        <li class="idea" style="--i:6"><button type="button" class="idea-btn" aria-haspopup="dialog">
+          <span class="idea-head"><span class="idea-title">Capricciosa</span><svg class="chev" width="16" height="16" aria-hidden="true"><use href="#i-chev"/></svg></span>
+          <span class="idea-ing">Passata · mozzarella · pernil cuit · xampinyons · carxofes</span>
+          <span class="idea-ins" hidden>Tot a la segona cocció, ben escorregut. Carxofes i xampinyons en làmines fines.</span>
+        </button></li>
+        <li class="idea" style="--i:7"><button type="button" class="idea-btn" aria-haspopup="dialog">
+          <span class="idea-head"><span class="idea-title">Bianca de patata</span><svg class="chev" width="16" height="16" aria-hidden="true"><use href="#i-chev"/></svg></span>
+          <span class="idea-ing">Patata · ceba · romaní · mozzarella · oli</span>
+          <span class="idea-ins" hidden>Sense passata. Patata en rodanxes molt fines, ceba i romaní sobre oli. A la segona cocció, mozzarella.</span>
+        </button></li>
+        <li class="idea" style="--i:8"><button type="button" class="idea-btn" aria-haspopup="dialog">
+          <span class="idea-head"><span class="idea-title">Vegetariana</span><svg class="chev" width="16" height="16" aria-hidden="true"><use href="#i-chev"/></svg></span>
+          <span class="idea-ing">Passata · mozzarella · pebrot · carbassó · alberginia</span>
+          <span class="idea-ins" hidden>Rostir o saltar abans les verdures, que no portin aigua. Posar-les a la segona cocció.</span>
+        </button></li>
+        <li class="idea" style="--i:9"><button type="button" class="idea-btn" aria-haspopup="dialog">
+          <span class="idea-head"><span class="idea-title">Burrata i pesto</span><svg class="chev" width="16" height="16" aria-hidden="true"><use href="#i-chev"/></svg></span>
+          <span class="idea-ing">Mozzarella · pesto · burrata · tomàquets cirerol</span>
+          <span class="idea-ins" hidden>Primera cocció amb mozzarella. En sortir, burrata a trossos, pesto i cirerols tallats.</span>
+        </button></li>
+      </ul>
     </section>
-
-    <footer class="foot">Pizza napolitana casolana · fermentació llarga en fred · doble cocció.</footer>
   </article>
 
-  <!-- ================= SPANISH ================= -->
   <article class="lang-block" data-lang="es" hidden>
 
-    <section class="hero">
-      <p class="kicker">Receta paso a paso</p>
-      <h1>Pizza napolitana<br>casera</h1>
-      <p class="lede">Masa con 12 horas de fermentación en frío, doble cocción y borde esponjoso. Guía completa, ingrediente a ingrediente.</p>
-      <div class="meta-row">
-        <span><strong>~14 h</strong> total</span>
-        <span class="dot">·</span>
-        <span><strong>2</strong> bolas de 260 g</span>
-        <span class="dot">·</span>
-        <span><strong>10</strong> pasos</span>
-      </div>
+    <section class="ingredients panel" data-tab="ingredients" id="panel-ingredients">
+      <h2>Ingredientes · 2 bolas</h2>
+      <ul class="ing-list">
+        <li><span>Harina floja</span><span class="ing-val">230 g</span></li>
+        <li><span>Harina de fuerza</span><span class="ing-val">230 g</span></li>
+        <li><span>Agua</span><span class="ing-val">330 g</span></li>
+        <li><span>Aceite de oliva</span><span class="ing-val">15 g</span></li>
+        <li><span>Sal</span><span class="ing-val">8 g</span></li>
+        <li><span>Azúcar</span><span class="ing-val">5 g</span></li>
+        <li><span>Levadura fresca <span class="ing-hint">(un garbanzo)</span></span><span class="ing-val">0,5 g</span></li>
+      </ul>
+      <p class="ing-top"><span class="ing-label">Encima</span> Sémola (para estirar) · tomate triturado · mozzarella escurrida · parmesano · pepperoni · albahaca <span class="plus">+ sal y aceite</span></p>
     </section>
 
-    <section class="ingredients">
-      <h2>Ingredientes</h2>
-      <div class="ing-grid">
-        <div class="ing-col">
-          <h3>Para la masa</h3>
-          <ul class="ing-list">
-            <li><span>Harina floja (uso común)</span><span class="ing-val">230 g</span></li>
-            <li><span>Harina de fuerza</span><span class="ing-val">230 g</span></li>
-            <li><span>Agua</span><span class="ing-val">330 g</span></li>
-            <li><span>Aceite de oliva virgen extra</span><span class="ing-val">15 g</span></li>
-            <li><span>Sal</span><span class="ing-val">8 g aprox.</span></li>
-            <li><span>Azúcar</span><span class="ing-val">5 g</span></li>
-            <li><span>Levadura fresca</span><span class="ing-val">0,5 g</span></li>
-          </ul>
-          <p class="ing-note">El azúcar ayuda a dorar el borde en el horno doméstico. La levadura: tamaño de un garbanzo seco, o una punta de cuchara si es seca.</p>
-        </div>
-        <div class="ing-col">
-          <h3>Relleno y estirado</h3>
-          <ul class="ing-list ing-list--desc">
-            <li><span class="ing-label">Base</span><span>Sémola o harina de freír, para estirar</span></li>
-            <li><span class="ing-label">Salsa</span><span>Tomate triturado (passata)</span></li>
-            <li><span class="ing-label">Quesos</span><span>Mozzarella fresca bien escurrida y Parmesano Reggiano rallado</span></li>
-            <li><span class="ing-label">Otros</span><span>Pepperoni, albahaca fresca, sal y un chorrito de aceite virgen extra</span></li>
-          </ul>
-        </div>
-      </div>
+    <section class="steps panel" data-tab="steps" id="panel-steps" hidden>
+      <div class="steps-head"><h2>Elaboración</h2><button type="button" class="reset-btn" hidden>Empezar de nuevo</button></div>
+      <ol class="step-list">
+      <li class="step" data-id="1"><button type="button" class="step-btn" aria-pressed="false">
+        <span class="step-num"><span class="n">1</span><svg class="tick" width="16" height="16"><use href="#i-tick"/></svg></span>
+        <span class="step-body">
+          <span class="step-head"><span class="step-title">Mezclar</span><span class="step-tags"><span class="step-time">30 s</span></span></span>
+          <span class="step-detail"><span class="step-detail-in">Todo al bol, levadura disuelta en el agua. Mezclar sin amasar.</span></span>
+        </span>
+      </button></li>
+      <li class="step" data-id="2"><button type="button" class="step-btn" aria-pressed="false">
+        <span class="step-num"><span class="n">2</span><svg class="tick" width="16" height="16"><use href="#i-tick"/></svg></span>
+        <span class="step-body">
+          <span class="step-head"><span class="step-title">Reposar y plegar</span><span class="step-tags"><span class="rep"><svg width="13" height="13"><use href="#i-repeat"/></svg>×2–4</span></span></span>
+          <span class="step-detail"><span class="step-detail-in"><span class="sub"><span class="sub-l">Reposa</span><span class="sub-d">Tapado, 15–20 min.</span></span><span class="sub"><span class="sub-l">Pliega</span><span class="sub-d">Despegar, levantar y doblar la masa; girar 90°. Hasta que quede lisa.</span></span></span></span>
+        </span>
+      </button></li>
+      <li class="step" data-id="3"><button type="button" class="step-btn" aria-pressed="false">
+        <span class="step-num"><span class="n">3</span><svg class="tick" width="16" height="16"><use href="#i-tick"/></svg></span>
+        <span class="step-body">
+          <span class="step-head"><span class="step-title">Nevera</span><span class="step-tags"><span class="step-time">12 h</span></span></span>
+          <span class="step-detail"><span class="step-detail-in">Tapado, de un día para otro.</span></span>
+        </span>
+      </button></li>
+      <li class="step" data-id="4"><button type="button" class="step-btn" aria-pressed="false">
+        <span class="step-num"><span class="n">4</span><svg class="tick" width="16" height="16"><use href="#i-tick"/></svg></span>
+        <span class="step-body">
+          <span class="step-head"><span class="step-title">Dividir</span><span class="step-tags"><span class="step-time">~260 g</span></span></span>
+          <span class="step-detail"><span class="step-detail-in">Sobre una mesa húmeda.</span></span>
+        </span>
+      </button></li>
+      <li class="step" data-id="5"><button type="button" class="step-btn" aria-pressed="false">
+        <span class="step-num"><span class="n">5</span><svg class="tick" width="16" height="16"><use href="#i-tick"/></svg></span>
+        <span class="step-body">
+          <span class="step-head"><span class="step-title">Bolas a temperatura ambiente</span><span class="step-tags"><span class="step-time">unas horas</span></span></span>
+          <span class="step-detail"><span class="step-detail-in">Bolas tapadas, hasta que tengan burbujas.</span></span>
+        </span>
+      </button></li>
+      <li class="step" data-id="6"><button type="button" class="step-btn" aria-pressed="false">
+        <span class="step-num"><span class="n">6</span><svg class="tick" width="16" height="16"><use href="#i-tick"/></svg></span>
+        <span class="step-body">
+          <span class="step-head"><span class="step-title">Horno</span><span class="step-tags"><span class="step-time">250 °C · 45 min</span></span></span>
+          <span class="step-detail"><span class="step-detail-in">Bandeja boca abajo arriba. Calor arriba y abajo.</span></span>
+        </span>
+      </button></li>
+      <li class="step" data-id="7"><button type="button" class="step-btn" aria-pressed="false">
+        <span class="step-num"><span class="n">7</span><svg class="tick" width="16" height="16"><use href="#i-tick"/></svg></span>
+        <span class="step-body">
+          <span class="step-head"><span class="step-title">Estirar y montar</span><span class="step-tags"></span></span>
+          <span class="step-detail"><span class="step-detail-in">Sobre sémola, desde el centro con los dedos planos (nunca de punta). A la pala: 2½ cucharadas de tomate, sal, aceite.</span></span>
+        </span>
+      </button></li>
+      <li class="step" data-id="8"><button type="button" class="step-btn" aria-pressed="false">
+        <span class="step-num"><span class="n">8</span><svg class="tick" width="16" height="16"><use href="#i-tick"/></svg></span>
+        <span class="step-body">
+          <span class="step-head"><span class="step-title">Cocer</span><span class="step-tags"><span class="rep"><svg width="13" height="13"><use href="#i-repeat"/></svg>×2</span></span></span>
+          <span class="step-detail"><span class="step-detail-in"><span class="sub"><span class="sub-l">Base</span><span class="sub-d">3–4 min · Borde hinchado, sin color.</span></span><span class="sub"><span class="sub-l">Acabado</span><span class="sub-d">2–3 min · Albahaca, mozzarella, pepperoni, parmesano. Grill si tiene. Aceite y tijeras.</span></span></span></span>
+        </span>
+      </button></li>
+      </ol>
     </section>
 
-    <section class="steps">
-      <h2>Elaboración</h2>
-
-      <div class="step">
-        <div class="step-num">01</div>
-        <div class="step-body">
-          <div class="step-head"><h3>Mezcla inicial</h3><span class="step-time">30 s</span></div>
-          <p>Mezclar la harina de fuerza, la harina normal y el azúcar en un bol. Disolver la levadura fresca en el agua y añadirla al bol con el aceite de oliva y la sal. Apretar y mezclar hasta que la masa esté integrada sin amasar demasiado.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">02</div>
-        <div class="step-body">
-          <div class="step-head"><h3>Primer reposo</h3><span class="step-time">15–20 min</span></div>
-          <p>Tapar el bol (por ejemplo, con un gorro de ducha) y dejar que la masa se relaje.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">03</div>
-        <div class="step-body">
-          <div class="step-head"><h3>Rondas de pliegues</h3><span class="step-time">2–4 rondas · 15–20 min entre pliegues</span></div>
-          <p>Con las manos húmedas, despegar la masa del fondo del bol, levantarla y doblarla sobre sí misma. Girar 90° y repetir hasta que ya no permita más pliegues. Reposar tapada entre pliegues, hasta que la masa se vea lisa.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">04</div>
-        <div class="step-body">
-          <div class="step-head"><h3>Primera fermentación en frío</h3><span class="step-time">12 h · nevera</span></div>
-          <p>Tapar el bol y guardarlo en la nevera, donde la masa hará una fermentación larga y acabará de amasarse sola. De un día para otro.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">05</div>
-        <div class="step-body">
-          <div class="step-head"><h3>División de la masa</h3><span class="step-time">~260 g / bola</span></div>
-          <p>Sacar la masa fría de la nevera a una mesa ligeramente húmeda y dividirla en porciones de unos 260 g cada una.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">06</div>
-        <div class="step-body">
-          <div class="step-head"><h3>Segunda fermentación, temperatura ambiente</h3><span class="step-time">Unas horas</span></div>
-          <p>Formar bolas y dejarlas reposar tapadas para que crezcan, se aplanen un poco por su alta hidratación y se llenen de burbujas de aire. El tiempo depende de la temperatura de la habitación.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">07</div>
-        <div class="step-body">
-          <div class="step-head"><h3>Precalentado del horno</h3><span class="step-time">~250 °C · mín. 45 min antes</span></div>
-          <p>Colocar la bandeja boca abajo en la parte superior (superficie plana). Precalentar con calor arriba y abajo a la potencia máxima del horno.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">08</div>
-        <div class="step-body">
-          <div class="step-head"><h3>Estirado y montaje inicial</h3></div>
-          <p>Colocar la bola sobre una capa generosa de sémola. Estirarla desde el centro hacia fuera con los dedos planos (nunca de punta), para no perder las burbujas de aire del borde. Retirar el exceso de sémola, pasarla a una pala, y condimentar con dos cucharadas y media de tomate, sal y un toque de aceite.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">09</div>
-        <div class="step-body">
-          <div class="step-head"><h3>Primera cocción (precocción)</h3><span class="step-time">3–4 min</span></div>
-          <p>Deslizar la pizza sobre la bandeja caliente. Objetivo: que la base se cocine por debajo y el borde se hinche esponjoso, sin coger color ni tostarse.</p>
-        </div>
-      </div>
-
-      <div class="step step--last">
-        <div class="step-num">10</div>
-        <div class="step-body">
-          <div class="step-head"><h3>Segunda cocción (acabado)</h3><span class="step-time">2–3 min · grill si tiene</span></div>
-          <p>Sacar la pizza (todavía blanda y blanca por arriba). Añadir albahaca fresca, mozzarella bien escurrida, pepperoni y Parmesano Reggiano. Volver al horno para tostar por arriba y dorar la base.</p>
-          <div class="callout"><strong>Acabado final —</strong> un último chorrito de aceite de oliva virgen extra y cortar con tijeras para conservar la estructura interna del borde.</div>
-        </div>
-      </div>
-
+    <section class="ideas panel" data-tab="ideas" id="panel-ideas" hidden>
+      <h2>Ideas</h2>
+      <ul class="idea-list">
+        <li class="idea" style="--i:0"><button type="button" class="idea-btn" aria-haspopup="dialog">
+          <span class="idea-head"><span class="idea-title">Margherita</span><svg class="chev" width="16" height="16" aria-hidden="true"><use href="#i-chev"/></svg></span>
+          <span class="idea-ing">Tomate · mozzarella · albahaca · aceite</span>
+          <span class="idea-ins" hidden>Primera cocción con tomate. Sacar, añadir la mozzarella a trozos y volver al horno. Terminar con albahaca fresca y un chorrito de aceite.</span>
+        </button></li>
+        <li class="idea" style="--i:1"><button type="button" class="idea-btn" aria-haspopup="dialog">
+          <span class="idea-head"><span class="idea-title">Marinara</span><svg class="chev" width="16" height="16" aria-hidden="true"><use href="#i-chev"/></svg></span>
+          <span class="idea-ing">Tomate · ajo · orégano · aceite</span>
+          <span class="idea-ins" hidden>Sin queso. Tomate, ajo laminado y orégano antes de la primera cocción. Un buen chorro de aceite al final.</span>
+        </button></li>
+        <li class="idea" style="--i:2"><button type="button" class="idea-btn" aria-haspopup="dialog">
+          <span class="idea-head"><span class="idea-title">Diavola</span><svg class="chev" width="16" height="16" aria-hidden="true"><use href="#i-chev"/></svg></span>
+          <span class="idea-ing">Tomate · mozzarella · pepperoni · aceite picante</span>
+          <span class="idea-ins" hidden>Como la Margherita, añadiendo el pepperoni en la segunda cocción para que se tueste un poco. Aceite picante al final.</span>
+        </button></li>
+        <li class="idea" style="--i:3"><button type="button" class="idea-btn" aria-haspopup="dialog">
+          <span class="idea-head"><span class="idea-title">Cuatro quesos</span><svg class="chev" width="16" height="16" aria-hidden="true"><use href="#i-chev"/></svg></span>
+          <span class="idea-ing">Mozzarella · gorgonzola · parmesano · provolone</span>
+          <span class="idea-ins" hidden>Tomate fino o nada. En la segunda cocción, repartir los cuatro quesos. Dejar hasta que burbujee.</span>
+        </button></li>
+        <li class="idea" style="--i:4"><button type="button" class="idea-btn" aria-haspopup="dialog">
+          <span class="idea-head"><span class="idea-title">Prosciutto e funghi</span><svg class="chev" width="16" height="16" aria-hidden="true"><use href="#i-chev"/></svg></span>
+          <span class="idea-ing">Tomate · mozzarella · champiñones · jamón cocido</span>
+          <span class="idea-ins" hidden>Saltear los champiñones en seco para que no suelten agua. Ponerlos en la segunda cocción y el jamón al sacarla.</span>
+        </button></li>
+        <li class="idea" style="--i:5"><button type="button" class="idea-btn" aria-haspopup="dialog">
+          <span class="idea-head"><span class="idea-title">Napoli</span><svg class="chev" width="16" height="16" aria-hidden="true"><use href="#i-chev"/></svg></span>
+          <span class="idea-ing">Tomate · mozzarella · anchoas · aceitunas · orégano</span>
+          <span class="idea-ins" hidden>Primera cocción con tomate. En la segunda, mozzarella, anchoas y aceitunas. Poca sal: las anchoas ya llevan.</span>
+        </button></li>
+        <li class="idea" style="--i:6"><button type="button" class="idea-btn" aria-haspopup="dialog">
+          <span class="idea-head"><span class="idea-title">Capricciosa</span><svg class="chev" width="16" height="16" aria-hidden="true"><use href="#i-chev"/></svg></span>
+          <span class="idea-ing">Tomate · mozzarella · jamón cocido · champiñones · alcachofas</span>
+          <span class="idea-ins" hidden>Todo en la segunda cocción, bien escurrido. Alcachofas y champiñones en láminas finas.</span>
+        </button></li>
+        <li class="idea" style="--i:7"><button type="button" class="idea-btn" aria-haspopup="dialog">
+          <span class="idea-head"><span class="idea-title">Bianca de patata</span><svg class="chev" width="16" height="16" aria-hidden="true"><use href="#i-chev"/></svg></span>
+          <span class="idea-ing">Patata · cebolla · romero · mozzarella · aceite</span>
+          <span class="idea-ins" hidden>Sin tomate. Patata en rodajas muy finas, cebolla y romero sobre aceite. En la segunda cocción, mozzarella.</span>
+        </button></li>
+        <li class="idea" style="--i:8"><button type="button" class="idea-btn" aria-haspopup="dialog">
+          <span class="idea-head"><span class="idea-title">Vegetariana</span><svg class="chev" width="16" height="16" aria-hidden="true"><use href="#i-chev"/></svg></span>
+          <span class="idea-ing">Tomate · mozzarella · pimiento · calabacín · berenjena</span>
+          <span class="idea-ins" hidden>Asar o saltear antes las verduras para que no suelten agua. Ponerlas en la segunda cocción.</span>
+        </button></li>
+        <li class="idea" style="--i:9"><button type="button" class="idea-btn" aria-haspopup="dialog">
+          <span class="idea-head"><span class="idea-title">Burrata y pesto</span><svg class="chev" width="16" height="16" aria-hidden="true"><use href="#i-chev"/></svg></span>
+          <span class="idea-ing">Mozzarella · pesto · burrata · tomates cherry</span>
+          <span class="idea-ins" hidden>Primera cocción con mozzarella. Al sacarla, burrata a trozos, pesto y cherrys cortados.</span>
+        </button></li>
+      </ul>
     </section>
-
-    <footer class="foot">Pizza napolitana casera · fermentación larga en frío · doble cocción.</footer>
   </article>
 
 </main>
+
+<nav class="tabbar" aria-label="Seccions" data-active="ingredients">
+<div class="tabs"><span class="tab-ind" aria-hidden="true"></span>
+  <button type="button" class="tab" data-tab-btn="ingredients" aria-controls="panel-ingredients" aria-pressed="true">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h12M8 12h12M8 18h12M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></svg>
+    <span class="tab-l" data-l="ca">Ingredients</span><span class="tab-l" data-l="es">Ingredientes</span>
+  </button>
+  <button type="button" class="tab" data-tab-btn="steps" aria-controls="panel-steps" aria-pressed="false">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></svg>
+    <span class="tab-l" data-l="ca">Elaboració</span><span class="tab-l" data-l="es">Elaboración</span>
+  </button>
+  <button type="button" class="tab" data-tab-btn="ideas" aria-controls="panel-ideas" aria-pressed="false">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg>
+    <span class="tab-l" data-l="ca">Idees</span><span class="tab-l" data-l="es">Ideas</span>
+  </button>
+</div>
+</nav>
+
+<dialog class="sheet" id="sheet" aria-labelledby="sheet-title">
+  <div class="sheet-grip" aria-hidden="true"></div>
+  <button type="button" class="sheet-close" id="sheetClose" aria-label="Tanca">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <h2 class="sheet-title" id="sheet-title"></h2>
+  <p class="sheet-ing"></p>
+  <p class="sheet-ins"></p>
+</dialog>
 
 <script src="script.js"></script>
 <script>
