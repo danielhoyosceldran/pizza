@@ -1,12 +1,19 @@
 (function () {
   var root = document.documentElement;
   var themeBtn = document.getElementById('themeBtn');
-  var storedTheme = localStorage.getItem('theme');
-  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   var EASE = 'cubic-bezier(0.23, 1, 0.32, 1)';
+
+  // storage can throw (private mode, blocked site data); the page must keep working without it
+  function load(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
+  function save(key, value) { try { localStorage.setItem(key, value); } catch (e) {} }
 
   function calm() { return window.matchMedia('(prefers-reduced-motion: reduce)').matches; }
   function canTransition() { return !!document.startViewTransition && !calm(); }
+
+  function labelTheme() {
+    themeBtn.setAttribute('aria-label', root.lang === 'es' ? 'Tema oscuro' : 'Tema fosc');
+    themeBtn.setAttribute('aria-pressed', String(root.getAttribute('data-theme') === 'dark'));
+  }
 
   function applyTheme(theme) {
     root.setAttribute('data-theme', theme);
@@ -14,14 +21,16 @@
     document.querySelectorAll('meta[name="theme-color"]').forEach(function (m) {
       m.setAttribute('content', color);
     });
+    labelTheme();
   }
 
-  applyTheme(storedTheme || (prefersDark ? 'dark' : 'light'));
+  // the inline head script already picked the theme before first paint
+  applyTheme(root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
 
   // the new theme spreads as a circle from the toggle
   themeBtn.addEventListener('click', function () {
     var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    function go() { applyTheme(next); localStorage.setItem('theme', next); }
+    function go() { applyTheme(next); save('theme', next); }
     if (!canTransition()) { go(); return; }
 
     var r = themeBtn.getBoundingClientRect();
@@ -43,14 +52,21 @@
     return el._t;
   }
 
+  // letters are grouped per word so a line can only break between words mid-morph
   function letters(el, text) {
     el.textContent = '';
-    var out = [];
+    var out = [], word = null;
     for (var i = 0; i < text.length; i++) {
       var s = document.createElement('span');
       s.className = 'ml';
       s.textContent = text[i];
-      el.appendChild(s);
+      if (text[i] === ' ') {
+        word = null;
+        el.appendChild(s);
+      } else {
+        if (!word) { word = document.createElement('span'); word.className = 'ml-word'; el.appendChild(word); }
+        word.appendChild(s);
+      }
       out.push(s);
     }
     return out;
@@ -157,8 +173,9 @@
     langBtns.forEach(function (btn) {
       btn.setAttribute('aria-pressed', String(btn.getAttribute('data-lang-btn') === lang));
     });
-    localStorage.setItem('lang', lang);
-    document.documentElement.setAttribute('lang', lang);
+    save('lang', lang);
+    root.setAttribute('lang', lang);
+    labelTheme();
 
     if (pairs) {
       var n = 0;
@@ -172,7 +189,7 @@
     });
   });
 
-  var storedLang = localStorage.getItem('lang');
+  var storedLang = load('lang');
   if (storedLang === 'ca' || storedLang === 'es') {
     setLang(storedLang);
   }
@@ -181,7 +198,7 @@
 
   var KEY = 'done';
   var done = [];
-  try { done = JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) {}
+  try { done = JSON.parse(load(KEY) || '[]'); } catch (e) {}
 
   var stepItems = document.querySelectorAll('.step');
   var resets = document.querySelectorAll('.reset-btn');
@@ -214,7 +231,7 @@
     });
     resets.forEach(function (b) { b.hidden = !done.length; });
     tallies.forEach(function (t) { tally(t, done.length, animate); });
-    try { localStorage.setItem(KEY, JSON.stringify(done)); } catch (e) {}
+    save(KEY, JSON.stringify(done));
   }
 
   stepItems.forEach(function (li) {
@@ -325,7 +342,7 @@
     });
     document.querySelector('.tabbar').setAttribute('data-active', tab);
     panels.forEach(function (p) { p.hidden = p.getAttribute('data-tab') !== tab; });
-    try { localStorage.setItem('tab', tab); } catch (e) {}
+    save('tab', tab);
     window.scrollTo(0, 0);
   }
 
@@ -333,8 +350,7 @@
     b.addEventListener('click', function () { setTab(b.getAttribute('data-tab-btn')); });
   });
 
-  var storedTab = null;
-  try { storedTab = localStorage.getItem('tab'); } catch (e) {}
+  var storedTab = load('tab');
   if (storedTab === 'ingredients' || storedTab === 'steps' || storedTab === 'ideas') setTab(storedTab);
 
   // ---------- idea sheet: the title flies from the list into the sheet ----------

@@ -4,8 +4,8 @@
   --ink: #17161a;
   --ink-soft: #6b6a70;
   --line: #e6e4df;
-  --accent: oklch(0.58 0.16 32);
-  --accent-soft: oklch(0.58 0.16 32 / 0.1);
+  --accent: oklch(0.53 0.16 32);
+  --accent-soft: oklch(0.53 0.16 32 / 0.1);
   --mono: 'IBM Plex Mono', ui-monospace, monospace;
   --sans: 'Outfit', system-ui, sans-serif;
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
@@ -95,6 +95,13 @@ p { margin: 0; line-height: 1.65; color: var(--ink-soft); }
   gap: 2px;
 }
 
+/* small controls keep their look but get a 44px hit area for messy fingers */
+.lang-btn, .theme-btn, .reset-btn { position: relative; }
+.lang-btn::after, .theme-btn::after, .reset-btn::after { content: ''; position: absolute; }
+.lang-btn::after { inset: -7px -1px; }
+.theme-btn::after { inset: -4px; }
+.reset-btn::after { inset: -8px -8px -8px -4px; }
+
 .lang-btn {
   appearance: none;
   min-height: 32px;
@@ -102,7 +109,7 @@ p { margin: 0; line-height: 1.65; color: var(--ink-soft); }
   background: transparent;
   color: var(--ink-soft);
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.03em;
   padding: 5px 12px;
@@ -176,7 +183,7 @@ html[data-theme="dark"] .theme-btn .icon-moon { display: block; }
 
 .ing-val {
   font-family: var(--mono);
-  font-size: 13px;
+  font-size: 14px;
   color: var(--ink-soft);
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
@@ -196,7 +203,7 @@ html[data-theme="dark"] .theme-btn .icon-moon { display: block; }
   display: block;
   margin-bottom: 2px;
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -294,7 +301,7 @@ html[data-theme="dark"] .theme-btn .icon-moon { display: block; }
 
 .step-time {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 14px;
   color: var(--ink-soft);
   white-space: nowrap;
 }
@@ -307,7 +314,7 @@ html[data-theme="dark"] .theme-btn .icon-moon { display: block; }
   border-radius: 999px;
   background: var(--accent-soft);
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 13.5px;
   font-weight: 500;
   color: var(--accent);
   white-space: nowrap;
@@ -330,11 +337,11 @@ html[data-theme="dark"] .theme-btn .icon-moon { display: block; }
   max-width: 60ch;
 }
 
-.sub { display: grid; grid-template-columns: 64px 1fr; gap: 10px; padding: 3px 0; }
+.sub { display: grid; grid-template-columns: 68px 1fr; gap: 10px; padding: 3px 0; }
 
 .sub-l {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -365,7 +372,7 @@ html[data-theme="dark"] .theme-btn .icon-moon { display: block; }
   .ing-list { column-gap: 20px; }
   .ing-list li { font-size: 14.5px; }
   .step-btn { grid-template-columns: 30px 1fr; gap: 8px; }
-  .mark span { display: none; }
+  .mark span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 }
 
 /* ---------- ideas ---------- */
@@ -563,6 +570,7 @@ body[data-lang="es"] .tab-l[data-l="es"] { display: inline; }
 /* ---------- language morph ---------- */
 
 .ml { display: inline-block; white-space: pre; text-decoration: inherit; }
+.ml-word { white-space: nowrap; text-decoration: inherit; }
 .ml-ghost { position: absolute; pointer-events: none; }
 
 @keyframes lang-in {

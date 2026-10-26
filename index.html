@@ -7,7 +7,7 @@
 <meta name="description" content="Recepta de pizza napolitana casolana, pas a pas — massa amb fermentació en fred i doble cocció.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/icon-192.png" type="image/png">
@@ -17,6 +17,15 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Pizza">
+<script>
+  // set the theme before first paint so dark mode never flashes light
+  (function () {
+    var t = null;
+    try { t = localStorage.getItem('theme'); } catch (e) {}
+    if (t !== 'dark' && t !== 'light') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
 </head>
 <body data-lang="ca">
 
@@ -28,16 +37,16 @@
 
 <header class="topbar">
   <div class="topbar-inner">
-    <div class="mark">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="9.5" r="0.9" fill="currentColor" stroke="none"/><circle cx="14" cy="8" r="0.9" fill="currentColor" stroke="none"/><circle cx="15" cy="14" r="0.9" fill="currentColor" stroke="none"/><circle cx="9.5" cy="14.5" r="0.9" fill="currentColor" stroke="none"/></svg>
+    <h1 class="mark">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="9.5" r="0.9" fill="currentColor" stroke="none"/><circle cx="14" cy="8" r="0.9" fill="currentColor" stroke="none"/><circle cx="15" cy="14" r="0.9" fill="currentColor" stroke="none"/><circle cx="9.5" cy="14.5" r="0.9" fill="currentColor" stroke="none"/></svg>
       <span>Pizza, pas a pas</span>
-    </div>
+    </h1>
     <div class="topbar-controls">
       <div class="lang-toggle" role="group" aria-label="Idioma">
         <button type="button" class="lang-btn" data-lang-btn="ca" aria-pressed="true">CA</button>
         <button type="button" class="lang-btn" data-lang-btn="es" aria-pressed="false">ES</button>
       </div>
-      <button type="button" class="theme-btn" id="themeBtn" aria-label="Canvia tema">
+      <button type="button" class="theme-btn" id="themeBtn" aria-label="Tema fosc" aria-pressed="false">
         <svg class="icon-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.5M12 19v2.5M4.5 12H2M22 12h-2.5M5.6 5.6l1.8 1.8M16.6 16.6l1.8 1.8M18.4 5.6l-1.8 1.8M7.4 16.6l-1.8 1.8"/></svg>
         <svg class="icon-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5Z"/></svg>
       </button>
@@ -49,7 +58,7 @@
 
   <article class="lang-block" data-lang="ca">
 
-    <section class="ingredients panel" data-tab="ingredients" id="panel-ingredients">
+    <section class="ingredients panel" data-tab="ingredients" id="panel-ingredients-ca">
       <h2>Ingredients · 2 panets</h2>
       <ul class="ing-list">
         <li><span>Farina fluixa</span><span class="ing-val">230 g</span></li>
@@ -63,7 +72,7 @@
       <p class="ing-top"><span class="ing-label">Per sobre</span> Semolina (per estirar) · passata · mozzarella escorreguda · parmesà · pepperoni · alfàbrega <span class="plus">+ sal i oli</span></p>
     </section>
 
-    <section class="steps panel" data-tab="steps" id="panel-steps" hidden>
+    <section class="steps panel" data-tab="steps" id="panel-steps-ca" hidden>
       <div class="steps-head"><h2><span class="h-t">Elaboració</span><span class="tally"><span class="tally-n"><span>0</span></span>/8</span></h2><button type="button" class="reset-btn" hidden>Tornar a començar</button></div>
       <ol class="step-list">
       <li class="step" data-id="1"><button type="button" class="step-btn" aria-pressed="false">
@@ -125,7 +134,7 @@
       </ol>
     </section>
 
-    <section class="ideas panel" data-tab="ideas" id="panel-ideas" hidden>
+    <section class="ideas panel" data-tab="ideas" id="panel-ideas-ca" hidden>
       <h2>Idees</h2>
       <ul class="idea-list">
         <li class="idea" style="--i:0"><button type="button" class="idea-btn" aria-haspopup="dialog">
@@ -184,7 +193,7 @@
 
   <article class="lang-block" data-lang="es" hidden>
 
-    <section class="ingredients panel" data-tab="ingredients" id="panel-ingredients">
+    <section class="ingredients panel" data-tab="ingredients" id="panel-ingredients-es">
       <h2>Ingredientes · 2 bolas</h2>
       <ul class="ing-list">
         <li><span>Harina floja</span><span class="ing-val">230 g</span></li>
@@ -198,7 +207,7 @@
       <p class="ing-top"><span class="ing-label">Encima</span> Sémola (para estirar) · tomate triturado · mozzarella escurrida · parmesano · pepperoni · albahaca <span class="plus">+ sal y aceite</span></p>
     </section>
 
-    <section class="steps panel" data-tab="steps" id="panel-steps" hidden>
+    <section class="steps panel" data-tab="steps" id="panel-steps-es" hidden>
       <div class="steps-head"><h2><span class="h-t">Elaboración</span><span class="tally"><span class="tally-n"><span>0</span></span>/8</span></h2><button type="button" class="reset-btn" hidden>Empezar de nuevo</button></div>
       <ol class="step-list">
       <li class="step" data-id="1"><button type="button" class="step-btn" aria-pressed="false">
@@ -260,7 +269,7 @@
       </ol>
     </section>
 
-    <section class="ideas panel" data-tab="ideas" id="panel-ideas" hidden>
+    <section class="ideas panel" data-tab="ideas" id="panel-ideas-es" hidden>
       <h2>Ideas</h2>
       <ul class="idea-list">
         <li class="idea" style="--i:0"><button type="button" class="idea-btn" aria-haspopup="dialog">
@@ -321,15 +330,15 @@
 
 <nav class="tabbar" aria-label="Seccions" data-active="ingredients">
 <div class="tabs"><span class="tab-ind" aria-hidden="true"></span>
-  <button type="button" class="tab" data-tab-btn="ingredients" aria-controls="panel-ingredients" aria-pressed="true">
+  <button type="button" class="tab" data-tab-btn="ingredients" aria-controls="panel-ingredients-ca panel-ingredients-es" aria-pressed="true">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h12M8 12h12M8 18h12M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></svg>
     <span class="tab-l" data-l="ca">Ingredients</span><span class="tab-l" data-l="es">Ingredientes</span>
   </button>
-  <button type="button" class="tab" data-tab-btn="steps" aria-controls="panel-steps" aria-pressed="false">
+  <button type="button" class="tab" data-tab-btn="steps" aria-controls="panel-steps-ca panel-steps-es" aria-pressed="false">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></svg>
     <span class="tab-l" data-l="ca">Elaboració</span><span class="tab-l" data-l="es">Elaboración</span>
   </button>
-  <button type="button" class="tab" data-tab-btn="ideas" aria-controls="panel-ideas" aria-pressed="false">
+  <button type="button" class="tab" data-tab-btn="ideas" aria-controls="panel-ideas-ca panel-ideas-es" aria-pressed="false">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg>
     <span class="tab-l" data-l="ca">Idees</span><span class="tab-l" data-l="es">Ideas</span>
   </button>

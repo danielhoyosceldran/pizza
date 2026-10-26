@@ -12,7 +12,7 @@ One person: the owner, cooking pizza at home and using the page to remember the 
 
 ## Product Purpose
 
-A personal recipe reference for Neapolitan-style home pizza (about 12 hours of cold fermentation, double bake, puffy crust), laid out as a 10-step guide with exact quantities. It is not a commercial product. Success means the owner can recall the next step at a glance without rereading. It is also a personal playground for web design and animated interaction.
+A personal recipe reference for Neapolitan-style home pizza (about 12 hours of cold fermentation, double bake, puffy crust), laid out as an 8-step guide with exact quantities. It is not a commercial product. Success means the owner can recall the next step at a glance without rereading. It is also a personal playground for web design and animated interaction.
 
 ## Operating Context
 
@@ -24,7 +24,7 @@ A personal recipe reference for Neapolitan-style home pizza (about 12 hours of c
 
 - Static site: plain HTML, CSS, and JS with no build step (`index.html`, `style.css`, `script.js`, `sw.js`).
 - Bilingual: Catalan (primary) and Spanish are full parallel translations, switched in-page. Every content or UI change must be made in both.
-- Content today: hero with total time, yield (2 balls of 260 g), and step count; ingredient lists; 10 steps.
+- Content today: three tabs. Ingredients (yield 2 balls of ~260 g), 8 steps with a done/total tally, and 10 topping ideas that open in a sheet.
 - Undecided: whether the page gets cooking-time helpers (timers, checklists); not requested.
 
 ## Brand Commitments
